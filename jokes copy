@@ -1,0 +1,78 @@
+
+jokes = [
+    {"topic": "robbers", "who": "Calder", "punchline": "Calder police - I've been robbed!"},
+    {"topic": "tanks", "who": "Tank", "punchline": "You are welcome!"},
+    {"topic": "pencils", "who": "Broken pencil", "punchline": "Nevermind, it's pointless!"}
+]
+
+
+
+def tell_joke(who, punchline):
+    print("Knock knock.")
+    print("Who's there?")
+    print(who + ".")
+    print(who + " who?")
+    print(punchline)
+
+
+
+
+def play_joke(choice):
+    for joke in jokes:  
+        if joke["topic"] == choice:  
+            tell_joke(joke["who"], joke["punchline"])
+            return  
+    else:
+        
+        print("That joke didn't exist, so a new one was added.")
+        jokes.append({
+            "topic": choice,
+            "who": "New joke",
+            "punchline": "This joke was just added!"
+        })
+        return
+
+
+
+
+joke = input("Do you want to hear a joke? ")
+
+
+
+if joke == "no":
+    print("Okay bye!")
+
+
+
+
+while joke == "yes":
+    print("Great, let's play!")
+    
+    
+    question = input("Do you want to hear a joke about robbers, tanks, or pencils? ")
+    
+    
+    play_joke(question)
+    
+ 
+    joke = input("Do you want to hear another joke or are you finished? ")
+
+
+
+
+if joke == "finished":
+    rate = int(input("Please rate my jokes 1–10: "))
+    
+ 
+    final_score = rate * 10
+    print(str(final_score) + "% satisfaction")
+
+  
+    friend = input("Would you recommend this to others? ")
+
+  
+    if friend == "yes" or friend == "maybe":
+        print("Thanks, we appreciate it!")
+    else:
+        print("Sorry you didn't enjoy.")
+        
